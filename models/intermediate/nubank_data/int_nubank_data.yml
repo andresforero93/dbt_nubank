@@ -1,0 +1,137 @@
+version: 2
+
+sources:
+  - name: nubank_data
+    database: core
+    schema: nubank_data
+    # description: Stores customer transactions information made in Nubank
+    # meta:
+    #       owner:  'Next Nubank Analytics Engineer'
+    #       contains_pii: true
+    # tables:
+    #   - name: account
+    #     description: This stores nubank account per customer
+    #     columns:
+    #      - name: account_id
+    #        tests:
+    #         - unique
+    #         - not_null 
+    #      - name: status
+    #        tests:
+    #         - accepted_values:
+    #             values: ['active', 'inactive'] 
+
+    #   - name: city
+    #     description: This stores customer city
+    #     columns:
+    #      - name: city_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: country
+    #     description: This stores customer city
+    #     columns:
+    #      - name: country_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: customer
+    #     description: This stores customer information
+    #     columns:
+    #      - name: customer_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_month
+    #     description: Dimension table that stores month number of investments, transactions and pix movements
+    #     columns:
+    #      - name: month_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_time
+    #     description: Fact table that stores id of year,month,week,weekday and tiemstamp of investments, transactions and pix movements
+    #     columns:
+    #      - name: time_id
+    #        test:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_week
+    #     description: Dimension table that stores year and week number of investments, transactions and pix movements
+    #     columns:
+    #      - name: week_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_weekday
+    #     description: Dimension table that stores day week of investments, transactions and pix movements
+    #     columns:
+    #      - name: weekday_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+
+    #   - name: d_year
+    #     description: Dimension table that stores year of investments, transactions and pix movements
+    #     columns:
+    #      - name: year_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: investments
+    #     description: This stores all investments of accounts
+
+    #   - name: pix_movements
+    #     description: This stores all pix (instantaneous transfer money in Brazil) movements per account
+    #     columns:
+    #      - name: id
+    #        tests:
+    #         - unique
+    #         - not_null
+    #      - name: status
+    #        tests:
+    #         - accepted_values:
+    #             values: ['failed', 'completed'] 
+
+    #   - name: state
+    #     description: This stores customer state location
+    #     columns:
+    #      - name: state_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: transfer_ins
+    #     description: This store transfer in information per account
+    #     columns:
+    #      - name: id
+    #        tests:
+    #         - unique
+    #         - not_null
+    #      - name: status
+    #        tests:
+    #         - accepted_values:
+    #             values: ['failed', 'completed'] 
+
+
+    #   - name: transfer_outs
+    #     description: This store transfer out information per account
+    #     columns:
+    #      - name: id
+    #        tests:
+    #         - unique
+    #         - not_null
+    #      - name: status
+    #        tests:
+    #         - accepted_values:
+    #             values: ['failed', 'completed'] 
+
+    

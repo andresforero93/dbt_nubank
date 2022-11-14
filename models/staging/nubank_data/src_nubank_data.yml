@@ -4,6 +4,7 @@ sources:
   - name: nubank_data
     database: raw
     schema: nubank_data
+    description: Stores customer transactions information made in Nubank
     meta:
           owner:  'Next Nubank Analytics Engineer'
           contains_pii: true
@@ -12,15 +13,19 @@ sources:
         description: This stores nubank account per customer
         columns:
          - name: account_id
-           test:
+           tests:
             - unique
             - not_null 
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['active', 'inactive'] 
 
       - name: city
         description: This stores customer city
         columns:
          - name: city_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -28,7 +33,7 @@ sources:
         description: This stores customer city
         columns:
          - name: country_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -36,7 +41,7 @@ sources:
         description: This stores customer information
         columns:
          - name: customer_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -44,7 +49,7 @@ sources:
         description: Dimension table that stores month number of investments, transactions and pix movements
         columns:
          - name: month_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -60,7 +65,7 @@ sources:
         description: Dimension table that stores year and week number of investments, transactions and pix movements
         columns:
          - name: week_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -68,7 +73,7 @@ sources:
         description: Dimension table that stores day week of investments, transactions and pix movements
         columns:
          - name: weekday_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -77,7 +82,7 @@ sources:
         description: Dimension table that stores year of investments, transactions and pix movements
         columns:
          - name: year_id
-           test:
+           tests:
             - unique
             - not_null
 
@@ -88,34 +93,45 @@ sources:
         description: This stores all pix (instantaneous transfer money in Brazil) movements per account
         columns:
          - name: id
-           test:
+           tests:
             - unique
             - not_null
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['failed', 'completed'] 
 
       - name: state
         description: This stores customer state location
         columns:
          - name: state_id
-           test:
+           tests:
             - unique
             - not_null
-
 
       - name: transfer_ins
         description: This store transfer in information per account
         columns:
          - name: id
-           test:
+           tests:
             - unique
             - not_null
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['failed', 'completed'] 
 
 
       - name: transfer_outs
         description: This store transfer out information per account
         columns:
          - name: id
-           test:
+           tests:
             - unique
             - not_null
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['failed', 'completed'] 
 
     

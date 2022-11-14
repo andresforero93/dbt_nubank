@@ -37,3 +37,9 @@ models:
       nubank_data:
         materialized: view
         schema: nubank_data
+    intermediate:
+      nubank_data:
+        materialized: view
+        database: core
+        schema: nubank_data
+
