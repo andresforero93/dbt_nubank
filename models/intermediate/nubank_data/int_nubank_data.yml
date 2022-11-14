@@ -1,0 +1,70 @@
+version: 2
+
+sources:
+  - name: nubank_data
+    database: core
+    schema: nubank_data
+    description: This layer contains transformations and reduce source database to fewer views 
+                 in order to optimize the data warehouse
+    meta:
+          owner:  'Next Nubank Analytics Engineer'
+          contains_pii: true
+    tables:
+      - name: int_investments_pivoted
+        description: This stores all investments of accounts. file transformed to SQL
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null 
+         - name: type
+           tests:
+            - accepted_values:
+                values: ['investment_transfer_in', 'investment_transfer_out'] 
+
+      - name: fct_transactions
+        description: fact table that contains information of all transactions types
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: transaction_type_id
+           tests:
+            - accepted_values:
+                values: [1, 2, 3, 4, 5, 6] 
+
+    #   - name: country
+    #     description: This stores customer city
+    #     columns:
+    #      - name: country_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: customer
+    #     description: This stores customer information
+    #     columns:
+    #      - name: customer_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_month
+    #     description: Dimension table that stores month number of investments, transactions and pix movements
+    #     columns:
+    #      - name: month_id
+    #        tests:
+    #         - unique
+    #         - not_null
+
+    #   - name: d_time
+    #     description: Fact table that stores id of year,month,week,weekday and tiemstamp of investments, transactions and pix movements
+    #     columns:
+    #      - name: time_id
+    #        test:
+    #         - unique
+    #         - not_null
+
+
+    
