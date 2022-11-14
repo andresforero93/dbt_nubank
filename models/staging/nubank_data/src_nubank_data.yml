@@ -87,7 +87,7 @@ sources:
             - not_null
 
       - name: investments
-        description: This stores all investments of accounts
+        description: This stores all investments of accounts in JSON format
 
       - name: pix_movements
         description: This stores all pix (instantaneous transfer money in Brazil) movements per account
