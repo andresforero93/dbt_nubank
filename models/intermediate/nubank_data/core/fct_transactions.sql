@@ -5,7 +5,7 @@ WITH unions AS
      
  SELECT  u.id
       , u.account_id
-      , ts.status_id
+      , ts.id as status_id
       , tt.id as transaction_type_id
       , tf.id as transaction_flow_id
       , tr.timestamp AS requested_at

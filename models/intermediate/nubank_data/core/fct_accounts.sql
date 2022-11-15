@@ -1,6 +1,6 @@
-SELECT  id
+SELECT  a.id
       , customer_id
-      , da.status_id
+      , da.id AS status_id
       , created_at
       , branch
       , check_digit 
