@@ -1,15 +1,6 @@
 version: 2
 
 models:
-  - name: nubank_data
-    database: core
-    schema: nubank_data
-    description: This layer contains transformations and reduce source database to fewer views 
-                 in order to optimize the data warehouse
-    meta:
-          owner:  'Next Nubank Analytics Engineer'
-          contains_pii: true
-    tables:
       - name: int_investments_pivoted
         description: This stores all investments of accounts. file transformed to SQL
         columns:
@@ -34,10 +25,10 @@ models:
             - not_null
          - name: transaction_type_id
            tests:
-            - not null
+            - not_null
          - name: transaction_flow_id
            tests:
-            - not null
+            - not_null
 
       - name: fct_accounts
         description: fact table that contains account information
