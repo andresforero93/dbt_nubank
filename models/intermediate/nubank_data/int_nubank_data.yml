@@ -29,42 +29,73 @@ sources:
            tests:
             - unique
             - not_null
+         - name: status_id
+           tests:
+            - not_null
          - name: transaction_type_id
            tests:
+            - not null
+         - name: transaction_flow_id
+           tests:
+            - not null
+
+      - name: fct_accounts
+        description: fact table that contains account information
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: status_id
+           tests:
+             - not_null
+
+      - name: dm_transaction_types
+        description: dimension table that stores transaction types 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: type
+           tests:
             - accepted_values:
-                values: [1, 2, 3, 4, 5, 6] 
+                values: ['investment_transfer', 'pix', 'transfer'] 
 
-    #   - name: country
-    #     description: This stores customer city
-    #     columns:
-    #      - name: country_id
-    #        tests:
-    #         - unique
-    #         - not_null
+      - name: dm_transaction_status
+        description: dimension table that stores transaction status 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['completed', 'failed'] 
 
-    #   - name: customer
-    #     description: This stores customer information
-    #     columns:
-    #      - name: customer_id
-    #        tests:
-    #         - unique
-    #         - not_null
+      - name: dm_transaction_flows
+        description: dimension table that stores transaction flows 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: flow
+           tests:
+            - accepted_values:
+                values: ['in', 'out'] 
 
-    #   - name: d_month
-    #     description: Dimension table that stores month number of investments, transactions and pix movements
-    #     columns:
-    #      - name: month_id
-    #        tests:
-    #         - unique
-    #         - not_null
-
-    #   - name: d_time
-    #     description: Fact table that stores id of year,month,week,weekday and tiemstamp of investments, transactions and pix movements
-    #     columns:
-    #      - name: time_id
-    #        test:
-    #         - unique
-    #         - not_null
-
+      - name: dm_account_status
+        description: dimension table that stores account status 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+         - name: status
+           tests:
+            - accepted_values:
+                values: ['active', 'inactive'] 
 
     
