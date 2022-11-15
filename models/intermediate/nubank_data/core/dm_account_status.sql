@@ -3,7 +3,7 @@ WITH status AS (
                   FROM {{ ref('account') }}
                )
 
-SELECT  status
-       , DENSE_RANK() OVER(order by status ) as status_id  
+SELECT DENSE_RANK() OVER(order by status ) as id
+       , status  
  FROM status
 ORDER BY 2
