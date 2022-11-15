@@ -42,4 +42,9 @@ models:
         materialized: view
         database: core
         schema: nubank_data
+    marts:
+        materialized: table
+        database: marts
+        schema: finance
+
 
