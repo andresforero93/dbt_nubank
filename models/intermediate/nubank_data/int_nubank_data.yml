@@ -29,6 +29,15 @@ models:
          - name: transaction_flow_id
            tests:
             - not_null
+         - name: country_id
+           tests:
+            - not_null
+         - name: city_id
+           tests:
+            - not_null
+         - name: state_id
+           tests:
+            - not_null
 
       - name: fct_accounts
         description: fact table that contains account information
@@ -87,6 +96,27 @@ models:
          - name: status
            tests:
             - accepted_values:
-                values: ['active', 'inactive'] 
+                values: ['active', 'inactive']
+      - name: dm_city
+        description: dimension table that stores user city 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+      - name: dm_state
+        description: dimension table that stores user state 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
+      - name: dm_country
+        description: dimension table that stores user country 
+        columns:
+         - name: id
+           tests:
+            - unique
+            - not_null
 
     
