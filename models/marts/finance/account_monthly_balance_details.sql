@@ -7,8 +7,8 @@ SELECT  *
                 , SUM( CASE WHEN t.transaction_flow_id = 1 THEN t.amount ELSE 0 END) AS total_transfer_in
                 , SUM( CASE WHEN t.transaction_flow_id = 2 THEN t.amount ELSE 0 END) AS total_transfer_out
           FROM {{ ref('fct_transactions') }} AS t
-          LEFT JOIN {{ ref('fct_accounts') }} AS a ON a.id = t.account_id
-          LEFT JOIN {{ ref('customer') }} AS c ON c.id = a.customer_id
+          LEFT JOIN {{ ref('dm_accounts') }} AS a ON a.id = t.account_id
+          LEFT JOIN {{ ref('dm_customers') }} AS c ON c.id = a.customer_id
          WHERE t.status_id = 1
          GROUP BY 1, 2
        )

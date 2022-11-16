@@ -30,7 +30,7 @@ models:
            tests:
             - not_null
 
-      - name: fct_accounts
+      - name: dm_accounts
         description: fact table that contains account information
         columns:
          - name: id
@@ -89,7 +89,7 @@ models:
             - accepted_values:
                 values: ['active', 'inactive']
 
-      - name: fct_customers
+      - name: dm_customers
         description: dimension table that stores customer locations, name, last name and cpf
         columns:
          - name: id
